@@ -1,3 +1,5 @@
+import java.sql.Struct;
+
 public class OOPs {
 
     public static void main(String[] args) {
@@ -13,9 +15,30 @@ public class OOPs {
         BankAccount myAcc = new BankAccount();
         myAcc.username = "Aashirwad";
         myAcc.setPass("1234");
-        
+
+        Student s1 = new Student("Aashirwad");
+        System.out.println(s1.name);
+        Student s1 = new Student("54");
+        Student s2 = new Student(s1);
     }
 
+}
+
+
+class Student{
+    String name;
+    int roll;
+    String password;
+
+Student(String name){
+    this.name = name;
+}
+Student (int roll){
+    this.roll = roll;
+}
+Student(String password){
+    this.password = password;
+}
 }
 
 
