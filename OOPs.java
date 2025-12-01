@@ -31,15 +31,65 @@ public class OOPs {
 // Mammals dog = new Mammals();
 // dog.walk();
 
-Horse H = new Horse();
-H.eat();
-H.walk();
-chicken C = new chicken();
-C.eat();
-C.walk();
+// Horse H = new Horse();
+// H.eat();
+// H.walk();
+// chicken C = new chicken();
+// C.eat();
+// C.walk();
+
+
+// Queen q = new Queen();
+// q.moves();
+
+Student s1 = new Student();
+s1.SchoolName = "Jai ho";
+s1.name = "Jai ho ki maa";
+
+Student s2 = new Student();
+System.out.println(s2.SchoolName);
     }
 
 }
+
+
+// interface
+// interface ChessPlayer{
+//     void moves();
+// }
+// class Queen implements ChessPlayer{
+//    public void moves(){
+//         System.out.println("up , down , left , right , diagonal");
+//     }
+// }
+// class Rook implements ChessPlayer{
+//    public void moves(){
+//         System.out.println("up , down , left , right");
+//     }
+// }
+// class King implements ChessPlayer{
+//    public void moves(){
+//         System.out.println("up , down , left , right , diagonal by one step");
+//     }
+// }
+
+// static keyword 
+class Student {
+    String name;
+    int roll;
+
+
+    static String SchoolName;
+
+    void setName(String name){
+     this.name = name;
+    }
+
+    String getName(){
+        return this.name;
+    }
+}
+
 
 // inheritance
 
@@ -79,26 +129,26 @@ C.walk();
 //     }
 // }
 
-// abstractions - data hiding + classes of abstract 
-abstract class Animal{
-    void eat(){
-        System.out.println("Abstact animal can eat also");
-    }
+// // abstractions - data hiding + classes of abstract 
+// abstract class Animal{
+//     void eat(){
+//         System.out.println("Abstact animal can eat also");
+//     }
 
-    abstract void walk();
-}
+//     abstract void walk();
+// }
 
-class Horse extends Animal{
-    void walk(){
-        System.out.println("walks on 4 leg");
-    }
-}
+// class Horse extends Animal{
+//     void walk(){
+//         System.out.println("walks on 4 leg");
+//     }
+// }
 
-class chicken extends Animal{
-    void walk(){
-        System.out.println("walk on 2 legs");
-    }
-}
+// class chicken extends Animal{
+//     void walk(){
+//         System.out.println("walk on 2 legs");
+//     }
+// }
 
 
 
