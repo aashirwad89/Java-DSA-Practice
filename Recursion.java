@@ -90,13 +90,15 @@ if(n==0){
 // }
 
 // print x^n 
-public static int powerPrint(int x , int n ){
-    if(n==0){
-        return 1;
-    }
-    return x*powerPrint(x, n-1);
-}
-// optimized way to solve it 
+// public static int powerPrint(int x , int n ){
+//     if(n==0){
+//         return 1;
+//     }
+//     return x*powerPrint(x, n-1);
+// }
+
+
+
 
 
     public static void main(String[] args) {
