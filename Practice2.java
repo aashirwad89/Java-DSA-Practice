@@ -68,11 +68,41 @@ fact *= i;
 // }
 // System.out.println(max);
 
-int arr[] = {2,3,4,5,6};
+// int arr[] = {2,3,4,5,6};
 
-for(int i= arr.length-1; i>=0; i--){
-    System.out.println(arr[i]);
-}
+// for(int i= arr.length-1; i>=0; i--){
+//     System.out.println(arr[i]);
+// }
+
+// String str = "education";
+// int count = 0;
+// for(int i=0; i<str.length(); i++){
+//     char ch = str.charAt(i);
+//     if(ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u'){
+//         count++;
+//     }
+//     System.out.println(count);
+// }
+
+// String str = "drop";
+// String rev = "";
+// for(int i = str.length()-1 ; i>=0; i--){
+//     rev += str.charAt(i);
+// }
+// System.out.println(rev);
+
+
+// String str = "madam";
+// String rev = "";
+// for(int i = str.length()-1; i>=0; i--){
+//     rev += str.charAt(i);
+// }
+// if(str.equals(rev)){
+//     System.out.println("Palindrom");
+// }else{
+//     System.out.println("Not a palindrom");
+// }
+
 
     }
 }
