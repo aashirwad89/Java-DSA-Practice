@@ -15,7 +15,6 @@ public class Practice {
 
 
      public static String digits[] = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
-
      public static void printDigit(int number){
         if(number == 0){
             return;
@@ -25,6 +24,10 @@ public class Practice {
         printDigit(number/10);
         System.out.println(digits[lastDigit]);
      }
+
+
+public static int 
+    
 
 public static void main(String[] args) {
 //  int[] arr = {3,2,4,5,6,2,7,2,2};
