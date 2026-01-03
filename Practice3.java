@@ -48,6 +48,19 @@ public static void merge(String arr[], int si , int mid , int ei){
         String arr[] = {"sun", "earth", "mars", "mercury"};
 // String s = "ABCD";  
 System.out.println(mergeSort(arr, 0, arr.length-1));
+
+Scanner sc = new Scanner(System.in);
+int a = sc.nextInt();
+float b = sc.nextFloat();
+long c = sc.nextLong();
+byte d = sc.nextByte();
+StringBuilder s = sc.nextLine();
+
+System.out.println(a);
+System.out.println(b);
+System.out.println(c);
+System.out.println(d);
+System.out.println(s);
     
     }
 }
