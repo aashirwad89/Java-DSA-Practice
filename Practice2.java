@@ -1,4 +1,4 @@
-// public class Practice2 {
+public class Practice2 {
 
 // public static boolean isEven(int n){
 //     return n % 2 == 0;
@@ -34,7 +34,7 @@
 // }
 
 
-//     public static void main(String[] args) {
+    public static void main(String[] args) {
 //         // int sum = 0;
 //         // int n = 5;
 //         // for(int i =0; i<=n; i++){
@@ -118,5 +118,8 @@
 // int arr[] = {6,3,9,5,2,8};
 // mergeSort(arr, 0, arr.length-1);
 
-//     }
-// }
+
+
+
+    }
+}
