@@ -183,6 +183,50 @@ public static boolean isPalindrome(String str){
     }
     return true;
 }
+
+public static int fib(int n ){
+    // base case 
+    if(n==0){
+        return 0;
+    }else if(n == 1){
+        return 1;
+    }
+
+
+    // recurisive call
+    return fib(n-1) + fib(n-2);
+}
+
+public static int printOcc(int arr[], int i, int key){
+    // base case
+    if(i == arr.length){
+        return -1;
+    }
+
+    if(arr[i] == key){
+        return i;
+    }
+
+    // recursive call 
+return printOcc(arr, i+1,  key);
+
+}
+
+public static void removeDup(String str , int idx , boolean[] seen , StringBuilder sb){
+    if(idx == str.length()){
+        return;
+    }
+
+    // recusrive call
+    char curr = str.charAt(idx);
+
+    if(!seen[curr - 'a']){
+        sb.append(curr);
+        seen[curr - 'a'] = true;
+    }
+
+    removeDup(str, idx+1, seen, sb);
+}
     public static void main(String[] args) {
 //         String arr[] = {"sun", "earth", "mars", "mercury"};
 // // String s = "ABCD";  
@@ -249,14 +293,29 @@ public static boolean isPalindrome(String str){
 // };
 //     printSpiral(matrix);
 
-    String str = "noon";
-    if(isPalindrome(str)){
-        System.out.println("palindrome hai");
-    }else{
-        System.out.println("palindrom nahi hai");
-    }
+    // String str = "noon";
+    // if(isPalindrome(str)){
+    //     System.out.println("palindrome hai");
+    // }else{
+    //     System.out.println("palindrom nahi hai");
+    // }
+
+    // int n = 7;
+    // for(int i= 1; i<=n; i++){
+    //     System.out.println(fib(i));
+    // }
+
+//     int arr[] = {8,3,6,9,5,10,5};
+//     int key = 5;
+
+// System.out.println(printOcc(arr, 0, key));
+
+// String str = "apnnacollege";
+// boolean[] seen  =  new boolean[26];
+// StringBuilder sb = new StringBuilder();
+// removeDup(str, 0, seen, sb); 
 
 
-    
+
     }
 }

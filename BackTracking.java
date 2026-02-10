@@ -39,14 +39,29 @@ System.out.println(ans);
 
 }
 
+public static void findPermutation(String str, String ans){
+// base case
+
+
+// recursion
+
+for(int i=0; i<str.length(); i++){
+    char curr  = str.charAt(i);
+    str = str.substring(0,i) + str.substring(i+1);
+    findPermutation(str, ans+curr);
+}
+}
+
     public static void main(String[] args) {
         // int arr[] = new int[5];
         // changeArr(arr, 0, 1);
         // printArr(arr);
 
         // subsets of an string 
-        String str  = "abc";
-        findSubset(str, "", 0);
+        // String str  = "abc";
+        // findSubset(str, "", 0);
 
+        String str = "abc";
+findPermutation(str, "");
     }
 }
