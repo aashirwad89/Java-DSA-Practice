@@ -170,7 +170,19 @@ public static void printSpiral(int matrix[][]) {
     }
 }
 
+public static boolean isPalindrome(String str){
+    int start = 0;
+    int end = str.length()-1;
 
+    while(start<end){
+        if(str.charAt(start) != str.charAt(end)){
+            return false;
+        }
+        start++;
+        end--;
+    }
+    return true;
+}
     public static void main(String[] args) {
 //         String arr[] = {"sun", "earth", "mars", "mercury"};
 // // String s = "ABCD";  
@@ -230,11 +242,21 @@ public static void printSpiral(int matrix[][]) {
 // Arrays.sort(arr);
 // System.out.println(arr);
 
-int matrix[][] = {
-    {1,2,3,4},
-    {5,6,7,8},
-    {9,10,11,12}
-};
-    printSpiral(matrix);
+// int matrix[][] = {
+//     {1,2,3,4},
+//     {5,6,7,8},
+//     {9,10,11,12}
+// };
+//     printSpiral(matrix);
+
+    String str = "noon";
+    if(isPalindrome(str)){
+        System.out.println("palindrome hai");
+    }else{
+        System.out.println("palindrom nahi hai");
+    }
+
+
+    
     }
 }
