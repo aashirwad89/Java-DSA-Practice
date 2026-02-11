@@ -227,6 +227,30 @@ public static void removeDup(String str , int idx , boolean[] seen , StringBuild
 
     removeDup(str, idx+1, seen, sb);
 }
+
+public int countWays(int n){
+    if(n == 1 || n == 2){
+        return n ;
+    }
+
+    // recursive call
+    return countWays(n-1) + (n-1)*countWays(n-2);
+}
+
+public static void printBinary(int n, int lastPlace, String str){
+    // base case
+    if(n ==0){
+System.out.println(str);
+return;
+    }
+
+    // recursive 
+printBinary(n-1, 0, str+ "0");
+
+if(lastPlace == 0){
+    printBinary(n-1, 1, str+ "1");
+}
+}
     public static void main(String[] args) {
 //         String arr[] = {"sun", "earth", "mars", "mercury"};
 // // String s = "ABCD";  
@@ -315,6 +339,24 @@ public static void removeDup(String str , int idx , boolean[] seen , StringBuild
 // StringBuilder sb = new StringBuilder();
 // removeDup(str, 0, seen, sb); 
 
+// int n = 4;
+// System.out.println();
+
+// int n = 3;
+// printBinary(n, 0, "");
+
+// arrays leader
+int arr[] = {16,17,4,3,5,2};
+
+int maxRight = arr[arr.length-1];
+System.out.println(maxRight + " ");
+
+for(int i = arr.length-2; i>=0; i--){
+    if(arr[i] > maxRight){
+        maxRight = arr[i];
+        System.out.println(maxRight + " ");
+    }
+}
 
 
     }
