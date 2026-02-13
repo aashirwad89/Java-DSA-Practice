@@ -93,6 +93,23 @@ trappedWater += waterLevel -height[i];
 
 return trappedWater;
 }
+
+public static int buyAndSell(int prices[]){
+    int buyPrice = Integer.MAX_VALUE ; //iska matlab hai infinity se initialise krna 
+    int maxProfit = 0;
+
+    for(int i=0; i<prices.length; i++){
+        if(buyPrice < prices[i]){
+            int profit  = prices[i]-buyPrice;
+            maxProfit = Math.max(maxProfit, profit);
+        }else{
+            buyPrice = prices[i];
+        }
+    }
+
+    return maxProfit;
+}
+
     public static void main(String[] args) {
         // int numbers[] = {1,2,3,-2,6};
         // printSubArr(numbers);
@@ -100,7 +117,12 @@ return trappedWater;
         // kandanes(numbers);
 
         // trapped Rainwater
-        int height[] = {4,2,0,6,3,2,5};
-System.out.println(trappedWater(height));
+//         int height[] = {4,2,0,6,3,2,5};
+// System.out.println(trappedWater(height));
+
+// best time to buy or sell stocks
+int prices[] = {7,1,5,3,6,4};
+System.out.println(buyAndSell(prices));
+
     }
 }
