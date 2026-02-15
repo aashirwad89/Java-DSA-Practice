@@ -52,19 +52,19 @@ for(int i=0; i<str.length(); i++){
 }
 }
 
-public static int nQueens(char board[][], int row){
-// base case 
-if(row == board.length){
-   printBoard(board);
-    return 1; 
-}
-    // col
-    for(int j =0; j<board.length; j++){
-        board[row][j] = 'Q';
-        nQueens(board, row+1);
-        board[row][j] = '.';
-    }
-}
+// public static int nQueens(char board[][], int row){
+// // base case 
+// if(row == board.length){
+//    printBoard(board);
+//     return 1; 
+// }
+//     // col
+//     for(int j =0; j<board.length; j++){
+//         board[row][j] = 'Q';
+//         nQueens(board, row+1);
+//         board[row][j] = '.';
+//     }
+// }
  public static void printBoard(char board[][]){
     for(int i = 0; i<board.length; i++){
         for(int j = 0 ; j<board.length; j++){
@@ -73,6 +73,71 @@ if(row == board.length){
         System.out.println();
     }
  }
+
+ public static int gridWays(int i , int j, int n , int m){
+// base case 
+if(i == n-1 && j == m-1){
+    return 1;
+}else if(i == n || j == n){
+return 0;
+}
+
+
+
+int way1 = gridWays(i+1, j, n, m);
+int way2 = gridWays(i, j+1, n, m);
+return way1 + way2;
+ }
+
+ public static boolean isSafe(int sudoku[][] , int row , int col, int digits){
+    // column 
+    for(int i=0; i<=8; i++){
+        if(sudoku[i][col] == digits){
+            return false;
+        }
+    }
+
+    // row
+    for(int j =0; j<=8; j++){
+        if(sudoku[row][j] == digits){
+            return false;
+        }
+    }
+
+    // grid
+    
+ }
+
+ public static boolean sudokuSolver(int sudoku[][], int row , int col){
+    // base case
+if(row == 9 && col == 9){
+    return true;
+}else if(row == 9){
+    return false;
+}
+
+    int nextRow = row;
+    int nextCol = col+1;
+    if(col+1 == 9){
+        nextRow = row+1;
+        nextCol = 0;
+    }
+
+    if(sudoku[row][col] != 0){
+      return  sudokuSolver(sudoku, nextRow, nextCol)
+    }
+    // recusion
+    for(int digits=1; digits<=9; digits++){
+        if(isSafe(sudoku, row , col, digits)){
+            sudoku[row][col] = digits;
+            if(sudokuSolver(sudoku, nextRow, nextCol)){
+                return true;
+            }
+            sudoku [row][col] = 0;
+        }
+    }
+ }
+
 
     public static void main(String[] args) {
         // int arr[] = new int[5];
@@ -86,15 +151,33 @@ if(row == board.length){
 //         String str = "abc";
 // findPermutation(str, "");
 
-int n = 2;
-char board[][] = new char[n][n];
+// int n = 2;
+// char board[][] = new char[n][n];
 
 // intialize
-for(int i=0; i<n; i++){
-    for(int j =0; j<n; j++){
-        board[i][j] = '.';
-    }
-}
-nQueens(board, 0);
+// for(int i=0; i<n; i++){
+//     for(int j =0; j<n; j++){
+//         board[i][j] = '.';
+//     }
+// }
+// nQueens(board, 0);
+
+// int n = 3;
+// int m = 3;
+// System.out.println(gridWays(0, 0, n, m));
+
+// sudoku solver
+int sudoku[][] = {
+    {0,0,8,0,0,0,0,0,0},
+    {4,9,0,1,5,7,0,0,2},
+    {0,0,3,0,0,4,1,9,0},
+    {1,8,5,0,6,0,0,2,0},
+    {0,0,0,0,2,0,0,6,0},
+    {9,6,0,4,0,5,3,0,0},
+    {0,3,0,0,7,2,0,0,4},
+    {0,4,9,0,3,0,0,5,7},
+    {8,2,7,0,0,9,0,1,3}
+};
+
     }
 }
