@@ -346,17 +346,17 @@ if(lastPlace == 0){
 // printBinary(n, 0, "");
 
 // arrays leader
-int arr[] = {16,17,4,3,5,2};
+// int arr[] = {16,17,4,3,5,2};
 
-int maxRight = arr[arr.length-1];
-System.out.println(maxRight + " ");
+// int maxRight = arr[arr.length-1];
+// System.out.println(maxRight + " ");
 
-for(int i = arr.length-2; i>=0; i--){
-    if(arr[i] > maxRight){
-        maxRight = arr[i];
-        System.out.println(maxRight + " ");
-    }
-}
+// for(int i = arr.length-2; i>=0; i--){
+//     if(arr[i] > maxRight){
+//         maxRight = arr[i];
+//         System.out.println(maxRight + " ");
+//     }
+// }
 
 
     }
