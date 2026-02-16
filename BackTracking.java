@@ -105,15 +105,23 @@ return way1 + way2;
     }
 
     // grid
-    
+    int sr = (row/3)*3;
+    int sc = (col/3) *3;
+
+    for(int i = sr; i<sr+3; i++){
+        for(int j =sc ; j<sc+3; j++){
+            if(sudoku[i][j] == digits){
+                return false;
+            }
+        }
+    }
+    return true;
  }
 
  public static boolean sudokuSolver(int sudoku[][], int row , int col){
     // base case
-if(row == 9 && col == 9){
+if(row == 9 && col == 0){
     return true;
-}else if(row == 9){
-    return false;
 }
 
     int nextRow = row;
@@ -124,7 +132,7 @@ if(row == 9 && col == 9){
     }
 
     if(sudoku[row][col] != 0){
-      return  sudokuSolver(sudoku, nextRow, nextCol)
+      return  sudokuSolver(sudoku, nextRow, nextCol);
     }
     // recusion
     for(int digits=1; digits<=9; digits++){
@@ -136,8 +144,17 @@ if(row == 9 && col == 9){
             sudoku [row][col] = 0;
         }
     }
- }
 
+    return false;
+ }
+public static void printSudoku(int sudoku[][]){
+    for(int i = 0; i<9; i++){
+        for(int j=0; j<9; j++){
+            System.out.print(sudoku[i][j] + " ");
+        }
+        System.out.println();
+    }
+}
 
     public static void main(String[] args) {
         // int arr[] = new int[5];
@@ -178,6 +195,13 @@ int sudoku[][] = {
     {0,4,9,0,3,0,0,5,7},
     {8,2,7,0,0,9,0,1,3}
 };
+
+if(sudokuSolver(sudoku, 0, 0)){
+    System.out.println("Solution exist");
+printSudoku(sudoku);
+}else{
+    System.out.println("Solution not exist ");
+}
 
     }
 }
