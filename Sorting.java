@@ -81,8 +81,8 @@ count[i]--;
         // selectionSort(arr);
 // insertionSort(arr);
 // Arrays.sort(arr);
-countingSort(arr);
-        printArr(arr);
+// countingSort(arr);
+//         printArr(arr);
         
 
     
