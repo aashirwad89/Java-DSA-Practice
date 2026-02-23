@@ -13,6 +13,7 @@ public static class Node{
 public static Node head;
 public static Node tail;
 
+
 public void addFirst(int data){
     // step 1
     Node newNode = new Node(data);
@@ -37,6 +38,21 @@ public void addLast(int data){
     tail = newNode;
 }
 
+public void add(int idx , int data){
+Node newNode = new Node(data);
+Node temp = head;
+int i = 0;
+
+while(i < idx - 1){
+    temp = temp.next;
+    i++;
+}
+
+newNode.next = temp.next;
+temp.next = newNode;
+
+}
+
 public void print(){
     if(head == null){
         System.out.println("LL is empty");
@@ -51,12 +67,11 @@ System.out.println();
 }
 public static void main(String[] args) {
 LinkedList ll = new LinkedList<>();
-ll.print();
 ll.addFirst(1);
 ll.addFirst(2);
-ll.print();
 ll.addLast(3);
 ll.addLast(4);
+ll.add(2,9);
 ll.print();
 
 
