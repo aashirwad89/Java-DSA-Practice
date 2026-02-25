@@ -134,6 +134,22 @@ public class Linked {
         head = prev;
     }
 
+public int itrSearch(int key){
+    Node temp = head;
+    int i = 0;
+
+    while(temp != null){
+        if(temp.data == key){
+            return i;
+        }
+        temp = temp.next;
+        i++;
+    }
+
+    return -1;
+
+}
+
     // Print list
     public void print() {
         if (head == null) {
@@ -176,6 +192,8 @@ public class Linked {
         ll.reverse();
         ll.print();
 
+
+        System.out.println(ll.itrSearch(3));
         System.out.println("Size: " + ll.getSize());
     }
 }
