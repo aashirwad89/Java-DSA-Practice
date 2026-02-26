@@ -118,20 +118,25 @@ public class Linked {
         return val;
     }
 
-    // Reverse Linked List
-    public void reverse() {
-        Node prev = null;
-        Node curr = head;
-        tail = head;
 
-        while (curr != null) {
-            Node next = curr.next;
-            curr.next = prev;
-            prev = curr;
-            curr = next;
+    public int helper(Node head , int key){
+        if(head == null){
+            return -1;
         }
 
-        head = prev;
+        if(head.data == key){
+            return 0;
+        }
+        int idx  = helper(head.next, key);
+        if(idx == -1){
+return -1;
+        }
+
+        return idx+1;
+    }
+
+    public int recSearch(int key){
+        return helper(head, key);
     }
 
 public int itrSearch(int key){
@@ -148,6 +153,20 @@ public int itrSearch(int key){
 
     return -1;
 
+}
+
+public void reverse(){
+    Node prev = null;
+    Node curr = tail =  head; //right to left value assign hoti hai
+Node next;
+
+while( curr != null){
+    next = curr.next;
+    curr.next = prev;
+    prev = curr;
+    curr = next;
+}
+head = prev;
 }
 
     // Print list
@@ -192,8 +211,9 @@ public int itrSearch(int key){
         ll.reverse();
         ll.print();
 
-
-        System.out.println(ll.itrSearch(3));
-        System.out.println("Size: " + ll.getSize());
+        
+// System.out.println(ll.recSearch(3));
+        // System.out.println(ll.itrSearch(3));
+        // System.out.println("Size: " + ll.getSize());
     }
 }
