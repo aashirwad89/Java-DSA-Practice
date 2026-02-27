@@ -169,6 +169,78 @@ while( curr != null){
 head = prev;
 }
 
+public void deleteNthFromEnd(int n){
+    // calculate size
+    int size = 0;
+    Node temp = head;
+    while(temp != null){
+        temp = temp.next;
+        size++;
+    }
+
+    if(n == size){
+        head = head.next; //remove first
+        return;
+    }
+
+    //size-n
+    int i = 1;
+    int iToFind = size-n;
+    Node prev = head;
+    while(i<iToFind){
+prev = prev.next;
+i++;
+    }
+    prev.next  = prev.next.next;
+    return;
+}
+
+// slow-fast approach
+public  Node findMid(Node head){
+    Node slow = head;
+    Node fast = head;
+    while(fast != null && fast.next != null){
+        slow = slow.next;
+        fast = fast.next.next;
+    }
+    return slow; //slow is my middle
+}
+
+public boolean checkPalindrome(){
+    if(head == null || head.next == null){
+        return true;
+    }
+    
+    // step 1 - find mid
+Node miNode = findMid(head);
+
+    // step 2 - reverse 2nd half
+Node prev = null;
+Node curr = miNode;
+Node next;
+
+while(curr != null){
+    next = curr.next;
+    curr.next = prev;
+    prev = curr;
+    curr  = next;
+}
+
+Node right = prev; //right half ka head
+Node left  = head;
+
+    // step 3 - check left half & right half
+    while(right != null){
+        if(left.data != right.data){
+            return false;
+        }
+        left = left.next;
+        right = right.next;
+    }
+
+    return true;
+}
+
     // Print list
     public void print() {
         if (head == null) {
@@ -194,22 +266,33 @@ head = prev;
 
         Linked ll = new Linked();
 
-        ll.addFirst(1);
-        ll.addFirst(2);
-        ll.addLast(3);
-        ll.addLast(4);
-        ll.add(2, 9);
+        ll.addLast(1);
+        ll.addLast(2);
+        ll.addLast(2);
+        ll.addLast(1);
 
-        ll.print();   // 2 -> 1 -> 9 -> 3 -> 4 -> null
-
-        ll.removeFirst();
         ll.print();
+        System.out.println(ll.checkPalindrome());
 
-        ll.removeLast();
-        ll.print();
+        // ll.addFirst(1);
+        // ll.addFirst(2);
+        // ll.addLast(3);
+        // ll.addLast(4);
+        // ll.add(2, 9);
 
-        ll.reverse();
-        ll.print();
+        // ll.print();   // 2 -> 1 -> 9 -> 3 -> 4 -> null
+
+        // ll.removeFirst();
+        // ll.print();
+
+        // ll.removeLast();
+        // ll.print();
+
+        // ll.reverse();
+        // ll.print();
+
+        // ll.deleteNthFromEnd(1);
+        // ll.print();
 
         
 // System.out.println(ll.recSearch(3));
