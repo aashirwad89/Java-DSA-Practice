@@ -1,21 +1,18 @@
 public class Cont {
+    
+    public static long fastPower(long x, long n) {
+       if(n==0) return 1;
 
-public static void selectionSort(int arr[]){
-  
-}
-public static void printArr(int arr[]){
-    for(int i=0; i<arr.length; i++){
-        System.out.print(arr[i]+ "");
+       long half = fastPower(x, n/2);
+
+       if(n%2 == 0){
+        return half* half;
+       }else{
+        return x*half*half;
+       }
     }
-    System.out.println();
-}
-
-   
-    public static void main(String[] args){
-         int arr[] = {5,4,3,1,2};
-        selectionSort(arr);
-        printArr(arr);
-         
-         
+    
+    public static void main(String[] args) {
+      System.out.println(fastPower(2,10)); //1024
     }
 }
