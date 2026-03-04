@@ -1,18 +1,22 @@
 public class Cont {
     
-    public static long fastPower(long x, long n) {
-       if(n==0) return 1;
+    public static String findLargest(String[] arr){
+if(arr.length == 0){
+  throw new IllegalArgumentException("No strings provided");
+}      
 
-       long half = fastPower(x, n/2);
-
-       if(n%2 == 0){
-        return half* half;
-       }else{
-        return x*half*half;
-       }
+String max = arr[0];
+for(int i=1; i<arr.length; i++){
+  if(arr[i].compareTo(max)>0){
+    max = arr[i];
+  }
+}
+return max;
     }
     
     public static void main(String[] args) {
-      System.out.println(fastPower(2,10)); //1024
+    String[] arr = {"Appple", "Bananna", "Mango", "Orange"};
+    String largest = findLargest(arr);
+    System.out.println(largest);  
     }
 }
