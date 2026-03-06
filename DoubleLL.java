@@ -15,7 +15,7 @@ public class DoubleLL {
  public static Node tail;
  public static int size;
 
-//  add operation
+//  add operation -- remove need by my side
 public void addFirst(int data){
     Node newNode = new Node(data);
     size++;
