@@ -1,12 +1,31 @@
 public class Cont {
+  public static int gridWays(int i , int j , int n , int m){
+    // destination reached
+     if(i == n-1 && j == m-1){
+      return 1;
+     }
+
+if(i>=n || j>= m){
+  return 0;
+}
+
+  // move right 
+  int rightWays = gridWays(i, j+1, n, m);
+
+    // move down 
+int leftWays = gridWays(i+1, j, n, m);
+
+    // return the output 
+    return rightWays + leftWays;
+  }
     
-     public static void 
-     removeDup(String str, int idx, StringBuilder result, boolean map[]) {
-      
-    }
+     
     
     public static void main(String[] args) {
-      String str = "programming";
-        removeDup(str, 0, new StringBuilder(""), new boolean[26]);
+       int n = 3;
+        int m = 3;
+
+        int ways = gridWays(0, 0, n, m);
+        System.out.println("Total Ways = " + ways);
     }
 }
