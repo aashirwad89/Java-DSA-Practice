@@ -1,16 +1,29 @@
 import java.util.*;
 public class Stack {
-    static class StackB{
-static ArrayList<Integer> list = new ArrayList();
-
+static class Node{
+    int data ;
+    Node next;
+    Node(int data){
+        this.data = data;
+        this.next = null;
+    }
+}
+static class StackB{
+static Node head = null;
 
 public static boolean isEmpty(){
-    return list.size() == 0;
+    return head == null;
 }
 
-// push function
+// push
 public static void push(int data){
-    list.add(data);
+    Node newNode = new Node(data);
+    if(isEmpty()){
+          head = newNode;
+          return;
+    }
+    newNode.next = head;
+    head = newNode;
 }
 
 // pop function
@@ -18,19 +31,21 @@ public static int pop(){
     if(isEmpty()){
         return -1;
     }
-    int top = list.get(list.size()-1);
-    list.remove(list.size()-1);
+
+    int top = head.data;
+    head = head.next;
     return top;
 }
 
-// peek operation
+// peek fucntion
 public static int peek(){
     if(isEmpty()){
         return -1;
     }
-    return  list.get(list.size()-1);
+
+    return head.data;
 }
-    }
+}
     public static void main(String[] args) {
         StackB s = new StackB();
             s.push(1);
