@@ -1,9 +1,11 @@
 import java.util.*;
 public class Stack {
     static class StackB{
-stativ ArrayList<Integer> list = new ArrayList();
+static ArrayList<Integer> list = new ArrayList();
+
+
 public static boolean isEmpty(){
-    return list.size == 0;
+    return list.size() == 0;
 }
 
 // push function
@@ -13,6 +15,9 @@ public static void push(int data){
 
 // pop function
 public static int pop(){
+    if(isEmpty()){
+        return -1;
+    }
     int top = list.get(list.size()-1);
     list.remove(list.size()-1);
     return top;
@@ -20,10 +25,21 @@ public static int pop(){
 
 // peek operation
 public static int peek(){
-    int top = list.get(list.size()-1);
+    if(isEmpty()){
+        return -1;
+    }
+    return  list.get(list.size()-1);
 }
     }
     public static void main(String[] args) {
-        
+        StackB s = new StackB();
+            s.push(1);
+            s.push(2);
+            s.push(3);
+
+            while(!s.isEmpty()){
+                System.out.println(s.peek());
+                s.pop();
+            }
     }
 }
