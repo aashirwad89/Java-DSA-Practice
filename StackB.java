@@ -67,6 +67,8 @@ public static void stockSpan(int stocks[], int span[]){
         s.push(i);
     }
 }
+
+
     public static void main(String[] args) {
         // Stack<Integer> s = new Stack<>();
         // s.push(1);
@@ -92,12 +94,41 @@ public static void stockSpan(int stocks[], int span[]){
 // printStack(s);
 
 
-int stocks[] = {100,85, 60 , 70, 60, 85, 100};
-int span[] = new int[stocks.length];
-stockSpan(stocks, span);
+// int stocks[] = {100,85, 60 , 70, 60, 85, 100};
+// int span[] = new int[stocks.length];
+// stockSpan(stocks, span);
 
-for(int i = 0; i<span.length; i++){
-    System.out.println(span[i] + " ");
+// for(int i = 0; i<span.length; i++){
+//     System.out.println(span[i] + " ");
+// }
+
+int arr[] = {6, 8, 0, 1, 3};
+Stack<Integer> s = new Stack<>();
+
+int nextGreater[] = new int[arr.length];
+
+for(int i = arr.length-1; i>=0; i--){
+    // while loop
+
+    while(!s.isEmpty() && arr[s.peek()] <= arr[i]){
+        s.pop();
+    }
+
+    // if else
+        if(s.isEmpty()){
+            nextGreater[i] = -1;
+        }else{
+            nextGreater[i] = s.peek();
+        }
+
+        // push in s
+        s.push(i);
 }
+
+for(int i = 0; i<nextGreater.length; i++){
+    System.out.println(nextGreater[i] + " ");
+}
+
+System.out.println();
     }
 }
