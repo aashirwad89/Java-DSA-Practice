@@ -1,10 +1,14 @@
 public class Queue {
-    static class QueueB{
-static int arr[];
-static int size;
-static int rear;
-static int front;
+    static class Node{
+        int data;
+         Node next;
 
+         Node(int data){
+            this.data = data;
+            this.next = null;
+         }
+    }
+    static class QueueB{
 QueueB(int n){
     arr = new int[n];
     size = n;
