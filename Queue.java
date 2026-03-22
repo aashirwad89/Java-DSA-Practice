@@ -9,32 +9,24 @@ public class Queue {
          }
     }
     static class QueueB{
-QueueB(int n){
-    arr = new int[n];
-    size = n;
-    rear = -1;
-    front = -1;
-}
+static Node head = null;
+static Node tail = null;
+
+
 
 public static boolean isEmpty(){
-    return rear == -1 && front == -1;
-}
-public static boolean isFull(){
-    return (rear+1)%size == front;
+  return head == null && tail == null;
 }
 
 // add function
 public static void add(int data){
-    if(isFull()){
-        System.out.println("queue is full");
-        return;
-    }
-    if(front == -1){
-        front = 0;
-    }
-
-    rear = (rear+1) % size;
-    arr[rear] = data;
+   Node newNode = new Node(data);
+   if(head == null){
+    head = tail = newNode;
+    return;
+   } 
+   tail.next = newNode;
+   tail = newNode;
 }
 
 // remove 
@@ -43,15 +35,13 @@ public static int remove(){
         System.out.println("empty queue");
         return -1;
     }
-
-   int result = arr[front];
-
-   if(rear == front){
-    rear = front = -1;
-   }else{
-   front = (front+1)%size;
-   }
-return result;
+       int front = head.data;
+       if(tail == head){
+tail = head = null;
+       }else{
+        head = head.next;
+       }
+       return front;
 }
 
 // peek 
@@ -61,11 +51,11 @@ public static int peek(){
         return -1;
     }
 
-    return arr[front];
+    return head.data;
 }
     }
     public static void main(String[] args) {
-        QueueB q = new QueueB(3);
+        QueueB q = new QueueB();
         q.add(1);
         q.add(2);
         q.add(3);
