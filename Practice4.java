@@ -1,13 +1,20 @@
+import java.util.*;
 public class Practice4 {
-   
+   public static void generateBinary(int n){
+        Queue<String> q = new LinkedList<>();
+
+        q.add("1");
+        for(int i = 1; i<=n; i++){
+            String curr = q.remove();
+            System.out.println(curr);
+
+            q.add(curr+"0");
+            q.add(curr+"1");
+        }
+   }
 
     public static void main(String[] args) {
-        int n = 4;
-        for(int line = 1; line <= n; line++){
-            for(int stars = 1; stars <= n-line+1; stars++){
-                System.out.print("*");
-            }
-            System.out.println();
-        }
+        int n = 10;
+        generateBinary(n);
     }
 }
