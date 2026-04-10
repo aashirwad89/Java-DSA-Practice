@@ -9,7 +9,7 @@ public class Practice4 {
             System.out.println(curr);
 
             q.add(curr+"0");
-            q.add(curr+"1");
+            q.add(curr+"1"); 
         }
    }
 
