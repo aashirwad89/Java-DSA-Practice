@@ -1,20 +1,29 @@
 import java.util.*;
 public class Practice4 {
-   public static void generateBinary(int n){
-        Queue<String> q = new LinkedList<>();
+   
+// public static int fib(int n ){
+// if(n == 0){
+//     return 0;
+// }
+// if(n == 1){
+//     return 1;
+// }
 
-        q.add("1");
-        for(int i = 1; i<=n; i++){
-            String curr = q.remove();
-            System.out.println(curr);
+// return fib(n-1) + fib(n-2);
+// }
 
-            q.add(curr+"0");
-            q.add(curr+"1");    
-        }
-   }
+public static int firstOcc(int arr[], int target){
+
+}
 
     public static void main(String[] args) {
-        int n = 10;
-        generateBinary(n);
+        // int n = 10;
+        // for(int i = 0; i<n; i++){
+        //     System.out.println(fib(i));
+        // }
+
+        int arr[] = {8,3,6,5,7,5}; //3
+int target = 5;
+
     }
 }
