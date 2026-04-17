@@ -24,6 +24,6 @@ public static int firstOcc(int arr[], int target){
 
         int arr[] = {8,3,6,5,7,5}; //3
 int target = 5;
-
+firstOcc(); 
     }
 }
