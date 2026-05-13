@@ -1,5 +1,16 @@
 import java.util.*;
 public class Greedy {
+    static class Job{
+int deadline;
+int profit;
+int id;
+
+public Job(int i , int d , int p){
+    id = i;
+    deadline = d;
+    profit = p;
+}
+}
     public static void main(String[] args) {
 //         int start[] = {1,3,0,5,8,5};
 //         int end[]= {2,4,6,7,9,9};
@@ -86,21 +97,49 @@ public class Greedy {
 
 
 // indian coins 
-Integer coins[] = {1,2,5,10,20,50,100,500,2000};
-Arrays.sort(coins, Comparator.reverseOrder());
+// Integer coins[] = {1,2,5,10,20,50,100,500,2000};
+// Arrays.sort(coins, Comparator.reverseOrder());
 
-int countOfCoins = 0;
-int amount = 590;
-ArrayList<Integer> ans = new ArrayList<>();
-for(int i = 0; i<coins.length; i++){
-    if(coins[i] <= amount){
-        while(coins[i] <= amount){
-        countOfCoins++;
-        ans.add(coins[i]);
-        amount -= coins[i];
+// int countOfCoins = 0;
+// int amount = 590;
+// ArrayList<Integer> ans = new ArrayList<>();
+// for(int i = 0; i<coins.length; i++){
+//     if(coins[i] <= amount){
+//         while(coins[i] <= amount){
+//         countOfCoins++;
+//         ans.add(coins[i]);
+//         amount -= coins[i];
+//     }
+// }
+// }
+// System.out.println(countOfCoins);
+
+
+//job sequencing problem 
+
+
+int jobsInfo[][] = {{1,20}, {1,10}, {1,40}, {1,30}};
+
+ArrayList<Job> jobs =  new ArrayList<>();
+
+for(int i = 0; i<jobsInfo.length; i++){
+    jobs.add( new Job(i , jobsInfo[i][0], jobsInfo[i][1]));
+}
+
+Collections.sort(jobs, (a,b)-> b.profit -a.profit);
+
+ArrayList<Integer> seq = new ArrayList<>();
+int time = 0;
+for(int i = 0; i<jobs.size(); i++){
+    Job curr = jobs.get(i);
+    if(curr.deadline > time){
+        seq.add(curr.id);
+        time++;
     }
 }
+System.out.print(seq.size());     
+for(int i   = 0; i<seq.size(); i++){
+    System.out.print(seq.get(i));
 }
-System.out.println(countOfCoins);
 }
 }
