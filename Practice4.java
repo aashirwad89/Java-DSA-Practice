@@ -1,54 +1,55 @@
 import java.util.*;
 
-class Node{
-    int data ;
-    Node next;
+// class Node{
+//     int data ;
+//     Node next;
 
-Node(int val){
-    this.data = val;
-    this.next = null;
-}
-}
+// Node(int val){
+//     this.data = val;
+//     this.next = null;
+// }
+// }
 
-public class Practice4 {
-    public static Node reverseList(Node head){
-        Node prev = null;
-        Node curr = head;
-        Node next = null;
+// public class Practice4 {
+//     public static Node reverseList(Node head){
+//         Node prev = null;
+//         Node curr = head;
+//         Node next = null;
 
-        while(curr != null){
-            next  = curr.next;
-            curr.next = prev;
-            prev = curr;
-            curr = next;
-        }
-        return prev;
-    }
+//         while(curr != null){
+//             next  = curr.next;
+//             curr.next = prev;
+//             prev = curr;
+//             curr = next;
+//         }
+//         return prev;
+//     }
 
-    // Utility function to print the list
-    public static void printList(Node head) {
-        Node temp = head;
-        while (temp != null) {
-            System.out.print(temp.data + " -> ");
-            temp = temp.next;
-        }
-        System.out.println("null");
-    }
+//     // Utility function to print the list
+//     public static void printList(Node head) {
+//         Node temp = head;
+//         while (temp != null) {
+//             System.out.print(temp.data + " -> ");
+//             temp = temp.next;
+//         }
+//         System.out.println("null");
+//     }
 
-    public static boolean hasCycle(Node head){
-        Node slow = head;
-        Node fast = head;
+//     public static boolean hasCycle(Node head){
+//         Node slow = head;
+//         Node fast = head;
 
-        while(fast != null && fast.next != null){
-            slow = slow.next;
-            fast = fast.next.next;
+//         while(fast != null && fast.next != null){
+//             slow = slow.next;
+//             fast = fast.next.next;
 
-            if(slow == fast){
-                return true;
-            }
-        }
-        return false;
-    }
+//             if(slow == fast){
+//                 return true;
+//             }
+//         }
+//         return false;
+//     }
+
    public static void main(String[] args) {
     // Revision started 
     //Arrays ---
@@ -113,20 +114,23 @@ public class Practice4 {
 
     //Linked list ----------------
 
-    //reverse a linked list 
-Node head = new Node(1);
-head.next = new Node(2);
-head.next.next  = new Node(3);
+//     //reverse a linked list 
+// Node head = new Node(1);
+// head.next = new Node(2);
+// head.next.next  = new Node(3);
 
-System.out.println("original list");
-printList(head);
+// System.out.println("original list");
+// printList(head);
 
-head = reverseList(head);
+// head = reverseList(head);
 
-System.out.println("Reversed list ");
-printList(head);
+// System.out.println("Reversed list ");
+// printList(head);
 
-//Detect a cycle in LL
+// //Detect a cycle in LL
+
+
+
 
 
    }
