@@ -1,5 +1,54 @@
 import java.util.*;
+
+class Node{
+    int data ;
+    Node next;
+
+Node(int val){
+    this.data = val;
+    this.next = null;
+}
+}
+
 public class Practice4 {
+    public static Node reverseList(Node head){
+        Node prev = null;
+        Node curr = head;
+        Node next = null;
+
+        while(curr != null){
+            next  = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        return prev;
+    }
+
+    // Utility function to print the list
+    public static void printList(Node head) {
+        Node temp = head;
+        while (temp != null) {
+            System.out.print(temp.data + " -> ");
+            temp = temp.next;
+        }
+        System.out.println("null");
+    }
+
+    public static boolean hasCycle(Node head){
+        Node slow = head;
+        Node fast = head;
+
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+
+            if(slow == fast){
+                return true;
+            }
+        }
+        return false;
+    }
    public static void main(String[] args) {
     // Revision started 
     //Arrays ---
@@ -35,31 +84,50 @@ public class Practice4 {
     //Strings ----
 
     //reverse a string 
-    String str = "hello";
-    String rev = "";
+    // String str = "hello";
+    // String rev = "";
 
-    for(int i = str.length()-1; i>=0; i--){
-        rev += str.charAt(i);
-    }
-    System.out.println(rev);
+    // for(int i = str.length()-1; i>=0; i--){
+    //     rev += str.charAt(i);
+    // }
+    // System.out.println(rev);
 
 
-    //check palindrome strings - two pointers 
-    String str2 = "radar";
+    // //check palindrome strings - two pointers 
+    // String str2 = "radar";
 
-    int start = 0;
-    int end = str2.length()-1;
+    // int start = 0;
+    // int end = str2.length()-1;
 
-    boolean isPalindrome = true;
+    // boolean isPalindrome = true;
 
-    while(start<end){
-        if(str2.charAt(start)!=str2.charAt(end)){
-            isPalindrome  = false;
-            break;
-        }
-        start++;
-        end--;
-    }
-    System.out.println(isPalindrome);
+    // while(start<end){
+    //     if(str2.charAt(start)!=str2.charAt(end)){
+    //         isPalindrome  = false;
+    //         break;
+    //     }
+    //     start++;
+    //     end--;
+    // }
+    // System.out.println(isPalindrome);
+
+    //Linked list ----------------
+
+    //reverse a linked list 
+Node head = new Node(1);
+head.next = new Node(2);
+head.next.next  = new Node(3);
+
+System.out.println("original list");
+printList(head);
+
+head = reverseList(head);
+
+System.out.println("Reversed list ");
+printList(head);
+
+//Detect a cycle in LL
+
+
    }
 }
