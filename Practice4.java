@@ -12,9 +12,7 @@ public class Practice4 {
 // return fib(n-1) + fib(n-2);
 // }
 
-public static int firstOcc(int arr[], int target){
 
-}
 
     public static void main(String[] args) {
         // int n = 10;
@@ -23,7 +21,6 @@ public static int firstOcc(int arr[], int target){
         // }
 
         int arr[] = {8,3,6,5,7,5}; //3
-int target = 5;
-firstOcc(); 
+
     }
 }
