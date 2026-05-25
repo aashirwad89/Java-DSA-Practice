@@ -1,26 +1,34 @@
 import java.util.*;
 public class Practice4 {
-   
-// public static int fib(int n ){
-// if(n == 0){
-//     return 0;
-// }
-// if(n == 1){
-//     return 1;
-// }
+   public static void main(String[] args) {
+    // Revision started 
+    //Arrays ---
 
-// return fib(n-1) + fib(n-2);
-// }
+    // Find largest element 
+    int arr[] = {5,6,7,8,32};
+    int max = arr[0];
 
-
-
-    public static void main(String[] args) {
-        // int n = 10;
-        // for(int i = 0; i<n; i++){
-        //     System.out.println(fib(i));
-        // }
-
-        int arr[] = {8,3,6,5,7,5}; //3
-
+    for(int i = 0; i<arr.length; i++){
+        if(arr[i]>max){
+            max = arr[i];
+        }
     }
+    System.out.println(max);
+
+    //kadanes algo 
+    int arr2[] = {-2,-3,-1,4,3,2,1};
+
+    int maxSum = arr[0];
+    int currSum = 0;
+
+    for(int i = 0; i<arr2.length; i++){
+        currSum += i;
+        maxSum = Math.max(maxSum, currSum);
+
+        if(currSum <0){
+            currSum = 0;
+        }
+    }
+    System.out.println(maxSum);
+   }
 }
