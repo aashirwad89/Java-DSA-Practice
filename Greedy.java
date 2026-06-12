@@ -118,28 +118,71 @@ public Job(int i , int d , int p){
 //job sequencing problem 
 
 
-int jobsInfo[][] = {{1,20}, {1,10}, {1,40}, {1,30}};
+// int jobsInfo[][] = {{1,20}, {1,10}, {1,40}, {1,30}};
 
-ArrayList<Job> jobs =  new ArrayList<>();
+// ArrayList<Job> jobs =  new ArrayList<>();
 
-for(int i = 0; i<jobsInfo.length; i++){
-    jobs.add( new Job(i , jobsInfo[i][0], jobsInfo[i][1]));
-}
+// for(int i = 0; i<jobsInfo.length; i++){
+//     jobs.add( new Job(i , jobsInfo[i][0], jobsInfo[i][1]));
+// }
 
-Collections.sort(jobs, (a,b)-> b.profit -a.profit);
+// Collections.sort(jobs, (a,b)-> b.profit -a.profit);
 
-ArrayList<Integer> seq = new ArrayList<>();
-int time = 0;
-for(int i = 0; i<jobs.size(); i++){
-    Job curr = jobs.get(i);
-    if(curr.deadline > time){
-        seq.add(curr.id);
-        time++;
+// ArrayList<Integer> seq = new ArrayList<>();
+// int time = 0;
+// for(int i = 0; i<jobs.size(); i++){
+//     Job curr = jobs.get(i);
+//     if(curr.deadline > time){
+//         seq.add(curr.id);
+//         time++;
+//     }
+// }
+// System.out.print(seq.size());     
+// for(int i   = 0; i<seq.size(); i++){
+//     System.out.print(seq.get(i));
+// }
+
+
+// chocola problem 
+int n = 4; 
+int m = 6; 
+Integer costVer[] = {2,1,3,1,4};
+Integer costHor[] = {4,1,2};
+
+Arrays.sort(costVer, Collections.reverseOrder());
+Arrays.sort(costHor , Collections.reverseOrder());
+
+int h = 0 ;
+int v= 0 ;
+int hp = 0; 
+int vp = 0;
+int cost = 0;
+while(h<costHor.length && v<costVer.length){
+    // ver cost < hor cost 
+    if(costVer[v]<= costHor[h]){
+cost += (costHor[h]*vp);
+hp++;
+h++;
+    }else{
+        cost += (costVer[v] * hp );
+        vp++;
+        v++;
     }
 }
-System.out.print(seq.size());     
-for(int i   = 0; i<seq.size(); i++){
-    System.out.print(seq.get(i));
+
+while(h<costHor.length){
+    cost += (costHor[v]*hp);
+
+    hp++;
+    h++;
 }
+
+while(v<costVer.length){
+    cost += (costVer[v]*hp);
+    vp++;
+    v++;
+}
+
+System.out.println(cost);
 }
 }
